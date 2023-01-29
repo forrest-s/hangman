@@ -1,7 +1,10 @@
+extern crate rand;
 use std::io;
+mod word;
 
 fn main() {
-    let word_to_guess = "secret";
+    let word_length = word::get_word_length();
+    let word_to_guess = word::get_random_word(word_length);
     let mut letters_guessed = vec![];
     let mut incorrect_guesses = 0;
     let mut word_display = vec!['_'; word_to_guess.len()];
